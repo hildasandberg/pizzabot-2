@@ -1,8 +1,8 @@
 //Put your Javscript code here:
 const pizzas=[
-  {name: "Vegetarian Pizza", price: 95, rating: 0 } ,
-  {name: "Hawaiian Pizza", price: 75, rating: 0 } ,
-  {name: "Pepperoni Pizza", price: 90, rating: 0 } ]
+  {name: "Vegetarian Pizza", price: 95, rating: [] } ,
+  {name: "Hawaiian Pizza", price: 75, rating: [] } ,
+  {name: "Pepperoni Pizza", price: 90, rating: [] } ]
 pizzas.sort()
 
 // Print in DOM
@@ -18,12 +18,15 @@ const checkOrderName = (orderName) => {
   document.getElementById("sort").innerHTML = "How many of " + orderName + " do you want?"
   if (orderName === pizzas[0].name) {
     pizzaPrice = pizzas[0].price
+    pizzaIndex = 0
     return true
   } else if (orderName === pizzas[1].name) {
     pizzaPrice = pizzas[1].price
+    pizzaIndex = 1
     return true
   } else if (orderName === pizzas[2].name) {
     pizzaPrice = pizzas[2].price
+    pizzaIndex = 2
     return true
   } else {
     alert("We dont have that pizza on the meny")
@@ -54,6 +57,16 @@ const CalculateTotalCostAndTime = () => {
   const orderTotal=totalCost(orderQuantity)
   const Time=cookingTime(orderQuantity)
   document.getElementById("delivery").innerHTML = "Great, I'll get started on your " + orderName + " right away, it will cost " + orderTotal + " kr. The pizzas will take " + Time + " minutes"
+}
+
+const updateRating = (newRating) => {
+  newRating=document.getElementById("rating").value
+  if (newRating => 1 && newRating <= 5) {
+    pizzas[pizzaIndex].rating.push(newRating)
+    console.log(newRating)
+  } else {
+    exit()
+  }
 }
 
 // Stretch goals
