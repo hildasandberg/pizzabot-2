@@ -1,0 +1,18 @@
+body {
+  background-image: url(http://nebula.wsimg.com/4aac4d943113dfaf6d9bd081ba3df660?AccessKeyId=1B3A5943FB6195E9668E&disposition=0&alloworigin=1);
+  text-align: center;
+}
+
+h1 {
+  color: red;
+}
+.container {
+  background-color: white;
+  opacity: 0.8;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 100px;
+  font-family: 'Courgette', cursive;
+  border: 5px;
+}

@@ -2,10 +2,41 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Sprint 2: Pizzabot – Part 2</title>
-    <script src="./pizzabot2.js" charset="utf-8"></script>
+    <title>Sprint 2: Pizzabot – Part 1</title>
+    <!-- <script src="./pizzabot.js" charset="utf-8"></script> -->
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
   </head>
   <body>
-    Edit pizzabot2.js to complete this assignment.
+
+    <div class="container">
+
+      <h1> Hildas Pizza </h1>
+      <p id="meny"></p>
+      <br>
+      <form id="frm1" action="/action_page.php">
+        Enter the name of the pizza you want to order today: <br>
+        <!-- <input type="text" id="order" name="order"><br> -->
+
+        <select name="pizzas" id="order">
+          <option id="piz1"></option>
+          <option id="piz2"></option>
+          <option id="piz3"></option>
+        </select>
+
+<input type="button" onclick="checkOrderName()" value="Submit">
+      </form>
+
+      <form id="frm2" action="/action_page.php">
+        <p id="sort"></p><input type="text" id="orderQuantity" name="lname"><br><br>
+        <input type="button" onclick="CalculateTotalCostAndTime()" value="Submit">
+      </form>
+
+      <p id="delivery"></p>
+
+      <input type="button" onclick="stretchGoals()" value="Read about Hawaiian Pizza">
+    </div>
+  <script src="pizzabot.js" charset="utf-8"></script>
+
   </body>
 </html>
