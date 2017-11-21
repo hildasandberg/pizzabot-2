@@ -71,10 +71,13 @@ const CalculateTotalCostAndTime = () => {
   const Time=cookingTime(orderQuantity)
   document.getElementById("delivery").innerHTML = "Great, I'll get started on your " + orderName + " right away, it will cost " + orderTotal + " kr. The pizzas will take " + Time + " minutes"
   document.getElementById("frm3").classList.toggle("active")
+  document.getElementById("knapp1").classList.toggle("inactive")
+  document.getElementById("knapp2").classList.toggle("inactive")
 }
 
 const updateRating = (newRating) => {
   newRating=parseInt(document.getElementById("rating").value)
+  document.getElementById("knapp3").classList.toggle("inactive")
   if (newRating => 1 && newRating <= 5) {
     pizzas[currentOrder.pizzaIndex].rating.push(newRating)
     console.log(newRating)

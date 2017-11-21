@@ -34,3 +34,7 @@ h1 {
 .active.frm3 {
   display: block;
 }
+
+.inactive.knapp {
+  display: none;
+}

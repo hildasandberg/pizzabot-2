@@ -24,20 +24,20 @@
           <option id="piz3"></option>
         </select>
 
-        <input type="button" onclick="checkOrderName()" value="Submit">
+        <input type="button" onclick="checkOrderName()" value="Submit" class="knapp" id="knapp1">
       </form>
 
       <form id="frm2" action="/action_page.php" class="frm2">
-        <p id="sort"></p><input type="text" id="orderQuantity" name="lname"><br><br>
-        <input type="button" onclick="CalculateTotalCostAndTime()" value="Submit">
+        <p id="sort"></p><input type="number" id="orderQuantity" name="lname" min=1 max=20>
+        <input type="button" onclick="CalculateTotalCostAndTime()" value="Submit" class="knapp" id="knapp2">
       </form>
 
       <p id="delivery"></p>
 
       <form id="frm3" action="/action_page.php" class="frm3">
         <p id="rate"> After your order, please rate your pizza on a scale from 1 (disgusting) to 5 (delicious): </p>
-        <input type="number" id="rating" name="rating" min=1 max=5><br><br>
-        <input type="button" onclick="updateRating()" value="rate">
+        <input type="number" id="rating" name="rating" min=1 max=5>
+        <input type="button" onclick="updateRating()" value="rate" class="knapp" id="knapp3">
       </form>
 
       <p id="delivery"></p>
