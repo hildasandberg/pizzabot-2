@@ -1,26 +1,29 @@
 //Put your Javscript code here:
-const vegetarian = "Vegetarian Pizza"
-const hawaiian = "Hawaiian Pizza"
-const pepperoni = "Pepperoni Pizza"
+const pizzas=[
+  {name: "Vegetarian Pizza", price: 95, rating: 0 } ,
+  {name: "Hawaiian Pizza", price: 75, rating: 0 } ,
+  {name: "Pepperoni Pizza", price: 90, rating: 0 } ]
+pizzas.sort()
 
-const pizzaPrice = 80
-
-//Put your Javscript code here:
-const X = vegetarian
-const Y = hawaiian
-const Z = pepperoni
-
-const pizzas = "Hey! Happy to serve your pizza. On our menu we have " + X + ", " + Y + " and "+ Z
-document.getElementById("meny").innerHTML = pizzas
-document.getElementById("piz1").innerHTML = X
-document.getElementById("piz2").innerHTML = Y
-document.getElementById("piz3").innerHTML = Z
+// Print in DOM
+const pizzaMeny = `Hey! Happy to serve your pizza. On our menu we have ${pizzas.length} number of pizzas. 1. ${pizzas[0].name} ${pizzas[0].price}  kr. 2. ${pizzas[1].name} ${pizzas[1].price} kr.  3. ${pizzas[1].name} ${pizzas[1].price} kr `
+document.getElementById("meny").innerHTML = pizzaMeny
+document.getElementById("piz1").innerHTML = pizzas[0].name
+document.getElementById("piz2").innerHTML = pizzas[1].name
+document.getElementById("piz3").innerHTML = pizzas[2].name
 
 // checkOrderName() which should take the orderName variable as an argument and return true or false if the pizza is on the menu or not.
 const checkOrderName = (orderName) => {
   orderName=document.getElementById("order").value
-  if (orderName === X || orderName === Y || orderName === Z) {
-    document.getElementById("sort").innerHTML = "How many of " + orderName + " do you want?"
+  document.getElementById("sort").innerHTML = "How many of " + orderName + " do you want?"
+  if (orderName === pizzas[0].name) {
+    pizzaPrice = pizzas[0].price
+    return true
+  } else if (orderName === pizzas[1].name) {
+    pizzaPrice = pizzas[1].price
+    return true
+  } else if (orderName === pizzas[2].name) {
+    pizzaPrice = pizzas[2].price
     return true
   } else {
     alert("We dont have that pizza on the meny")
