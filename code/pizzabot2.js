@@ -1,12 +1,32 @@
 //Put your Javscript code here:
 const pizzas=[
-  {name: "Vegetarian Pizza", price: 95, rating: [] } ,
-  {name: "Hawaiian Pizza", price: 75, rating: [] } ,
-  {name: "Pepperoni Pizza", price: 90, rating: [] } ]
+  {name: "Vegetarian Pizza", price: 95, rating: [3, 4, 5] } ,
+  {name: "Hawaiian Pizza", price: 75, rating: [1, 2, 4] } ,
+  {name: "Pepperoni Pizza", price: 90, rating: [1, 3, 2] } ]
 pizzas.sort()
 
+// function toggle() {
+//   this.classList.toggle("active")
+// }
+
+const currentOrder = {name:"", pizzaIndex: 0, Quantity: 0}
+
+// Calculate the mean value of the rating
+const average = (values) => {
+let sum = values.reduce((previous, current) => current += previous);
+let avg = sum / values.length;
+return avg
+}
+
+console.log(average(pizzas[0].rating))
+console.log(average(pizzas[1].rating))
+console.log(average(pizzas[2].rating))
+
 // Print in DOM
-const pizzaMeny = `Hey! Happy to serve your pizza. On our menu we have ${pizzas.length} number of pizzas. 1. ${pizzas[0].name} ${pizzas[0].price}  kr. 2. ${pizzas[1].name} ${pizzas[1].price} kr.  3. ${pizzas[1].name} ${pizzas[1].price} kr `
+const pizzaMeny = `Hey! Happy to serve your pizza. <br>On our menu we have ${pizzas.length} number of pizzas: <br><br>
+1. ${pizzas[0].name} ${pizzas[0].price} kr. Rating: ${average(pizzas[0].rating)}. <br>
+2. ${pizzas[1].name} ${pizzas[1].price} kr. Rating: ${average(pizzas[1].rating)}. <br>
+3. ${pizzas[2].name} ${pizzas[2].price} kr.  Rating: ${average(pizzas[2].rating)}. `
 document.getElementById("meny").innerHTML = pizzaMeny
 document.getElementById("piz1").innerHTML = pizzas[0].name
 document.getElementById("piz2").innerHTML = pizzas[1].name
@@ -16,17 +36,16 @@ document.getElementById("piz3").innerHTML = pizzas[2].name
 const checkOrderName = (orderName) => {
   orderName=document.getElementById("order").value
   document.getElementById("sort").innerHTML = "How many of " + orderName + " do you want?"
+  // document.getElementById("frm2").innerHTML = toggle
+  // myFunction(element)
   if (orderName === pizzas[0].name) {
-    pizzaPrice = pizzas[0].price
-    pizzaIndex = 0
+    currentOrder.pizzaIndex = 0
     return true
   } else if (orderName === pizzas[1].name) {
-    pizzaPrice = pizzas[1].price
-    pizzaIndex = 1
+    currentOrder.pizzaIndex = 1
     return true
   } else if (orderName === pizzas[2].name) {
-    pizzaPrice = pizzas[2].price
-    pizzaIndex = 2
+    currentOrder.pizzaIndex = 2
     return true
   } else {
     alert("We dont have that pizza on the meny")
@@ -37,7 +56,7 @@ const checkOrderName = (orderName) => {
 // totalCost() which takes orderQuantity as an argument and returns the total cost for the order.
 // const orderTotal = pizzaPrice * orderQuantity
 const totalCost=(quant)=> {
-  return quant*pizzaPrice
+  return quant*pizzas[currentOrder.pizzaIndex].price
 }
 
 // cookingTime takes orderQuantity and returns the number of minutes it will take to finish the order.
@@ -60,10 +79,16 @@ const CalculateTotalCostAndTime = () => {
 }
 
 const updateRating = (newRating) => {
-  newRating=document.getElementById("rating").value
+  newRating=parseInt(document.getElementById("rating").value)
   if (newRating => 1 && newRating <= 5) {
-    pizzas[pizzaIndex].rating.push(newRating)
+    pizzas[currentOrder.pizzaIndex].rating.push(newRating)
     console.log(newRating)
+    console.log(pizzas[currentOrder.pizzaIndex].rating)
+    const pizzaMeny = `Hey! Happy to serve your pizza. <br>On our menu we have ${pizzas.length} number of pizzas: <br><br>
+    1. ${pizzas[0].name} ${pizzas[0].price} kr. Rating: ${average(pizzas[0].rating)}. <br>
+    2. ${pizzas[1].name} ${pizzas[1].price} kr. Rating: ${average(pizzas[1].rating)}. <br>
+    3. ${pizzas[2].name} ${pizzas[2].price} kr.  Rating: ${average(pizzas[2].rating)}. `
+    document.getElementById("meny").innerHTML = pizzaMeny
   } else {
     exit()
   }

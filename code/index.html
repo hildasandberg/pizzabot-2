@@ -18,16 +18,16 @@
         Enter the name of the pizza you want to order today: <br>
         <!-- <input type="text" id="order" name="order"><br> -->
 
-        <select name="pizzas" id="order">
+        <select name="pizzas" id="order" class="inputBox">
           <option id="piz1"></option>
           <option id="piz2"></option>
           <option id="piz3"></option>
         </select>
 
-<input type="button" onclick="checkOrderName()" value="Submit">
+        <input type="button" onclick="checkOrderName()" value="Submit">
       </form>
 
-      <form id="frm2" action="/action_page.php">
+      <form id="frm2" action="/action_page.php" class="frm2">
         <p id="sort"></p><input type="text" id="orderQuantity" name="lname"><br><br>
         <input type="button" onclick="CalculateTotalCostAndTime()" value="Submit">
       </form>
