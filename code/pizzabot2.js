@@ -9,9 +9,9 @@ const currentOrder = {name:"", pizzaIndex: 0, Quantity: 0}
 
 // Calculate the mean value of the rating
 const average = (values) => {
-let sum = values.reduce((previous, current) => current += previous);
-let avg = sum / values.length;
-return avg
+  let sum = values.reduce((previous, current) => current += previous);
+  let avg = sum / values.length;
+  return avg
 }
 
 console.log(average(pizzas[0].rating))
