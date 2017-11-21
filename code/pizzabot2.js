@@ -64,6 +64,7 @@ const cookingTime = (quant) => {
   }
 }
 
+//Calculate total cost and time
 const CalculateTotalCostAndTime = () => {
   orderQuantity=document.getElementById("orderQuantity").value
   orderName=document.getElementById("order").value
@@ -75,6 +76,7 @@ const CalculateTotalCostAndTime = () => {
   document.getElementById("knapp2").classList.toggle("inactive")
 }
 
+// Adds rating to rating array and udates the rating
 const updateRating = (newRating) => {
   newRating=parseInt(document.getElementById("rating").value)
   document.getElementById("knapp3").classList.toggle("inactive")
