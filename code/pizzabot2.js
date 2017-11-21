@@ -70,6 +70,7 @@ const CalculateTotalCostAndTime = () => {
   const orderTotal=totalCost(orderQuantity)
   const Time=cookingTime(orderQuantity)
   document.getElementById("delivery").innerHTML = "Great, I'll get started on your " + orderName + " right away, it will cost " + orderTotal + " kr. The pizzas will take " + Time + " minutes"
+  document.getElementById("frm3").classList.toggle("active")
 }
 
 const updateRating = (newRating) => {
