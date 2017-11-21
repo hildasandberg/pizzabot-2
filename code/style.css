@@ -23,10 +23,10 @@ h1 {
 }
 
 
-/*.frm2 {
+.frm2 {
   display: none;
-}*/
+}
 
-.active .frm2{
+.active.frm2 {
   display: block;
 }

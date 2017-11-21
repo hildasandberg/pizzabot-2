@@ -5,10 +5,6 @@ const pizzas=[
   {name: "Pepperoni Pizza", price: 90, rating: [1, 3, 2] } ]
 pizzas.sort()
 
-// function toggle() {
-//   this.classList.toggle("active")
-// }
-
 const currentOrder = {name:"", pizzaIndex: 0, Quantity: 0}
 
 // Calculate the mean value of the rating
@@ -35,9 +31,8 @@ document.getElementById("piz3").innerHTML = pizzas[2].name
 // checkOrderName() which should take the orderName variable as an argument and return true or false if the pizza is on the menu or not.
 const checkOrderName = (orderName) => {
   orderName=document.getElementById("order").value
+  document.getElementById("frm2").classList.toggle("active")
   document.getElementById("sort").innerHTML = "How many of " + orderName + " do you want?"
-  // document.getElementById("frm2").innerHTML = toggle
-  // myFunction(element)
   if (orderName === pizzas[0].name) {
     currentOrder.pizzaIndex = 0
     return true
@@ -54,7 +49,6 @@ const checkOrderName = (orderName) => {
 }
 
 // totalCost() which takes orderQuantity as an argument and returns the total cost for the order.
-// const orderTotal = pizzaPrice * orderQuantity
 const totalCost=(quant)=> {
   return quant*pizzas[currentOrder.pizzaIndex].price
 }
